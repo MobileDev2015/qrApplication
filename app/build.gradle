@@ -25,4 +25,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: 'Parse-*.jar')
     compile 'com.parse:parse-android:1.10.3'
     compile files('libs/universal-image-loader-1.8.2.jar')
+    compile 'me.dm7.barcodescanner:zxing:1.8.3'
 }

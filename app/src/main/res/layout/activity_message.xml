@@ -23,7 +23,7 @@
         android:id="@+id/textViewSMS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter SMS Message : "
+        android:text="Enter Message : "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -31,6 +31,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
+        android:scrollbars="vertical"
         android:lines="5"
         android:gravity="top" />
 

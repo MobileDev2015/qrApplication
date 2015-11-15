@@ -16,7 +16,7 @@ public class ParseActivity extends AppCompatActivity {
         if (ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())) {
             // If user is anonymous, send the user to LoginSignupActivity.class
             Intent intent = new Intent(ParseActivity.this,
-                    WelcomeActivity.class);
+                    LoginSignupActivity.class);
             startActivity(intent);
             finish();
         } else {

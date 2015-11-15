@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.zxing.Result;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -22,13 +25,17 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
+import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity  {
+
+    private static final String TAG = "My Activity";
     // Declare Variable
     Button logout, createQR;
     List<ParseObject> ob;
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         logout = (Button) findViewById(R.id.logout);
         createQR = (Button) findViewById(R.id.createQR);
 
+
         createQR.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View arg0) {
@@ -60,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         // Logout Button Click Listener
         logout.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         new RemoteDataTask().execute();
     }
+
 
     // AsyncTask is designed to be a helper class around Thread and Handler and does not constitute a generic threading framework.
     // AsyncTasks should ideally be used for short operations (a few seconds at the most.)

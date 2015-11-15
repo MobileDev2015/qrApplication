@@ -3,8 +3,47 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@drawable/logonew"
     android:padding="10dip">
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/heading"
+        android:text="@string/welcome"
+        android:gravity="center_horizontal"/>
+
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey"
+        android:inputType="textPassword"
+        android:layout_centerInParent="true"
+        android:background="@color/opaqueWhite"
+        />
+
+    <TextView
+        android:id="@+id/txtpassword"
+        android:textColor="@color/black"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/password"
+        android:textSize="18sp"
+        android:text="@string/Password"
+        android:background="@color/opaqueWhite"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:textColor="@color/grey"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtpassword"
+        android:inputType="text"
+        android:background="@color/opaqueWhite"
+        />
 
 
     <TextView
@@ -13,32 +52,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/Username"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/username"
-        android:textColor="@color/grey"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtusername"
-        android:inputType="text" />
-
-    <TextView
-        android:id="@+id/txtpassword"
-        android:textColor="@color/black"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
+        android:layout_above="@+id/username"
         android:textSize="18sp"
-        android:text="@string/Password" />
+        android:background="@color/opaqueWhite"/>
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/grey"
-        android:layout_below="@+id/txtpassword"
-        android:inputType="textPassword" />
 
     <TableRow
         android:id="@+id/tableRow1"
