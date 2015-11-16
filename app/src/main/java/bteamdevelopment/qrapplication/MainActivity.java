@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity  {
         // Locate Button in welcome.xml
         logout = (Button) findViewById(R.id.logout);
         myProfile = (Button) findViewById(R.id.myProfile);
-        
+
 
         // Logout Button Click Listener
         logout.setOnClickListener(new View.OnClickListener() {
