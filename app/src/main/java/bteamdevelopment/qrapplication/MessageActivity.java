@@ -19,12 +19,12 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_message);
 
         // Get QRCode from Previous Intent
-        Intent qrMessage = getIntent();
-        qrCode = qrMessage.getStringExtra("qrCode");
+        Bundle qrMessage = getIntent().getExtras();
+        qrCode = qrMessage.getString("qrCode");
 
-        sendMessage.setOnClickListener(this);
-        TextView qrCode = (TextView)findViewById(R.id.qrCode);
-        qrCode.setText(qrCode.toString());
+       // sendMessage.setOnClickListener(this);
+        TextView qrCodeTextView = (TextView)findViewById(R.id.qrCode);
+        qrCodeTextView.setText(qrCode.toString());
 
     }
 

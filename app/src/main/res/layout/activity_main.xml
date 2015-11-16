@@ -58,6 +58,7 @@
         android:divider="#36454F"
         android:dividerHeight="2dp"/>
 
+
     <Button
         android:layout_width="120sp"
         android:layout_height="wrap_content"
@@ -69,6 +70,16 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <Button
+        android:layout_width="120sp"
+        android:layout_height="wrap_content"
+        android:text="My Profile"
+        android:id="@+id/myProfile"
+        android:background="@drawable/rounded_corners_white"
+        android:padding="15dp"
+        android:layout_below="@+id/createQR"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

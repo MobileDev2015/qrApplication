@@ -16,7 +16,8 @@
     <EditText
         android:id="@+id/qrCode"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:editable="false">
     </EditText>
 
     <TextView
@@ -33,7 +34,8 @@
         android:inputType="textMultiLine"
         android:scrollbars="vertical"
         android:lines="5"
-        android:gravity="top" />
+        android:gravity="top"
+        android:background="@color/white"/>
 
     <TableRow
         android:id="@+id/tableRow1"

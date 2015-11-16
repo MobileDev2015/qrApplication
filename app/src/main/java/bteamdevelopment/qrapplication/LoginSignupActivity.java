@@ -1,7 +1,9 @@
 package bteamdevelopment.qrapplication;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,13 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
+import net.glxn.qrgen.android.QRCode;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class LoginSignupActivity extends AppCompatActivity {
     // Declare Variables
     Button loginbutton;
@@ -21,6 +30,7 @@ public class LoginSignupActivity extends AppCompatActivity {
     String passwordtxt;
     EditText password;
     EditText username;
+    File imageFile;
 
     /** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
@@ -93,6 +103,7 @@ public class LoginSignupActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),
                                         "Successfully Signed up, please log in.",
                                         Toast.LENGTH_LONG).show();
+                                saveQrToGallery();
                             } else {
                                 Toast.makeText(getApplicationContext(),
                                         "Sign up Error", Toast.LENGTH_LONG)
@@ -105,6 +116,49 @@ public class LoginSignupActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    public void saveQrToGallery(){
+
+        // get the image from the imageview to save as bitmap
+        //ImageView canvas = (ImageView)findViewById(R.id.canvasImage);
+        //canvas.setDrawingCacheEnabled(true);
+        //Bitmap canvasBM = canvas.getDrawingCache();
+
+        ParseUser user = ParseUser.getCurrentUser();
+
+        String userName = user.getUsername();
+
+        Bitmap qrBitmap = QRCode.from(userName).bitmap();
+
+
+
+        //create the new file with following filePath
+        String root = Environment.getExternalStorageDirectory().toString();
+        imageFile = new File(root + "/Pictures" + createImageName());
+
+        //try to compress the image in the stream and notify the user the image is saved
+        try {
+            FileOutputStream out = new FileOutputStream(imageFile);
+            qrBitmap.compress(Bitmap.CompressFormat.JPEG,90,out);
+            out.flush();
+            out.close();
+            Toast.makeText(LoginSignupActivity.this, "QR Code Saved to: " + imageFile.toString(), Toast.LENGTH_SHORT).show();
+        }
+        catch (java.io.IOException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    private String createImageName() {
+        //file name is the (name of this app + the date + time) the image was taken
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        String timeStamp = sdf.format(new Date());
+        return "/QR" + timeStamp + ".jpg";
     }
 
 }

@@ -44,7 +44,7 @@ public class QRActivity extends AppCompatActivity {
 
     public void writeQR()
     {
-        clipTxt = "Test";
+        clipTxt = "barkeras";
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         //If the clipboard has text, and it is more than 0 characters.
         if((null != clipTxt) && (clipTxt.length() > 0)){
