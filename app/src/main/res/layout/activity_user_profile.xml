@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/Username"
+            android:text="@string/username"
             android:id="@+id/usernameTV"
             android:gravity="bottom"/>
 
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/Username"
+            android:text="@string/username"
             android:id="@+id/username"
             android:editable="false"/>
 

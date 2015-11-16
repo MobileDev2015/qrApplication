@@ -11,7 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         style="@style/heading"
-        android:text="@string/welcome"
+        android:text="@string/app_name"
         android:gravity="center_horizontal"/>
 
 
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/password"
         android:textSize="18sp"
-        android:text="@string/Password"
+        android:text="@string/password"
         android:background="@color/opaqueWhite"/>
 
     <EditText
@@ -51,7 +51,7 @@
         android:textColor="@color/black"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Username"
+        android:text="@string/username"
         android:layout_above="@+id/username"
         android:textSize="18sp"
         android:background="@color/opaqueWhite"/>
@@ -73,7 +73,7 @@
             android:padding="15dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:text="@string/LoginBtn" />
+            android:text="@string/log_in" />
 
         <Button
             android:id="@+id/createUser"
@@ -86,7 +86,7 @@
             android:padding="15dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="@string/createUserBtn" />
+            android:text="@string/create_user" />
 
     </TableRow>
 

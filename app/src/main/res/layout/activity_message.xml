@@ -10,7 +10,7 @@
         android:id="@+id/textViewPhoneNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="QR Code "
+        android:text="@string/qr_code"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -24,7 +24,7 @@
         android:id="@+id/textViewSMS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Message : "
+        android:text="@string/enter_message"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -52,7 +52,7 @@
         android:textColor="@color/white"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Send" />
+        android:text="@string/send_message" />
 
     </TableRow>
 </LinearLayout>

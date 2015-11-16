@@ -12,18 +12,19 @@
 
     <Button
         android:id="@+id/logout"
-        android:layout_alignParentRight="true"
         android:layout_width="120sp"
         android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corners"
         android:padding="15dp"
-        android:text="@string/LogoutBtn" />
+        android:text="@string/log_out"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="120sp"
         android:layout_height="wrap_content"
-        android:text="My Profile"
+        android:text="@string/myProfile"
         android:id="@+id/myProfile"
         android:background="@drawable/rounded_corners_white"
         android:padding="15dp"
@@ -41,7 +42,7 @@
     android:layout_below="@+id/myProfile"
     android:layout_alignParentRight="true"
     android:layout_alignParentEnd="true"
-    android:text="Scan QR Code"
+    android:text="@string/scan_code"
     android:textSize="12dp"/>
 
     <TextView
@@ -67,7 +68,5 @@
         android:layout_below="@+id/myContactsHeader"
         android:divider="#36454F"
         android:dividerHeight="2dp"/>
-
-
 
 </RelativeLayout>

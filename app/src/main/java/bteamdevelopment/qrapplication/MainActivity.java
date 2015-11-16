@@ -26,9 +26,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity  {
 
-    private static final String TAG = "My Activity";
     // Declare Variable
-    Button logout, createQR, myProfile;
+    Button logout, myProfile;
     List<ParseObject> ob;
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
