@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity  {
         ParseUser currentUser = ParseUser.getCurrentUser();
 
         // Convert currentUser into String
-        String struser = currentUser.getUsername().toString();
+        String struser = currentUser.getUsername();
 
         // Locate TextView in welcome.xml
         TextView txtuser = (TextView) findViewById(R.id.txtuser);
