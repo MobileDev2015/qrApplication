@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Username"
+            android:text="@string/Username"
             android:id="@+id/usernameTV"
             android:gravity="bottom"/>
 
@@ -33,23 +33,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Username"
+            android:text="@string/Username"
             android:id="@+id/username"
             android:editable="false"/>
-
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Change Password"
+            android:background="@drawable/rounded_corners"
+            android:textColor="@color/white"
+            android:text="@string/change_password"
             android:id="@+id/changePWButton"/>
-
-
-
     </LinearLayout>
-
-
-
-
 </LinearLayout>

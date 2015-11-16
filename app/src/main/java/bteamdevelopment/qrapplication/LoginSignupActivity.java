@@ -77,6 +77,7 @@ public class LoginSignupActivity extends AppCompatActivity {
                         });
             }
         });
+
         // Sign up Button Click Listener
         signup.setOnClickListener(new View.OnClickListener() {
 
@@ -112,12 +113,9 @@ public class LoginSignupActivity extends AppCompatActivity {
                         }
                     });
                 }
-
             }
         });
-
     }
-
 
     public void saveQrToGallery(){
 
@@ -131,8 +129,6 @@ public class LoginSignupActivity extends AppCompatActivity {
         String userName = user.getUsername();
 
         Bitmap qrBitmap = QRCode.from(userName).bitmap();
-
-
 
         //create the new file with following filePath
         String root = Environment.getExternalStorageDirectory().toString();
@@ -150,9 +146,7 @@ public class LoginSignupActivity extends AppCompatActivity {
         {
             e.printStackTrace();
         }
-
     }
-
 
     private String createImageName() {
         //file name is the (name of this app + the date + time) the image was taken
