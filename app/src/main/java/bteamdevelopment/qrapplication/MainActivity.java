@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity  {
 
     private static final String TAG = "My Activity";
     // Declare Variable
-    Button logout, createQR;
+    Button logout, createQR, myProfile;
     List<ParseObject> ob;
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity  {
         // Locate Button in welcome.xml
         logout = (Button) findViewById(R.id.logout);
         createQR = (Button) findViewById(R.id.createQR);
+        myProfile = (Button) findViewById(R.id.myProfile);
 
 
         createQR.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +82,15 @@ public class MainActivity extends AppCompatActivity  {
                 finish();
             }
         });
+
+        myProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UserProfile.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     // On Resume Reload ListView (NOT WORKING)
@@ -177,12 +187,12 @@ public class MainActivity extends AppCompatActivity  {
                 // Add Contents to Parse.com Database
                 ParseObject qrData = new ParseObject("qrData");
 
-                qrData.put("qrCode", contents);
+                qrData.put("qrCode", contents.toString());
 
                 qrData.saveInBackground();
 
-                Toast toast = Toast.makeText(this, "Content:" + contents + " Format:" + format, Toast.LENGTH_LONG);
-                toast.show();
+                Toast.makeText(this, "Content:" + contents + " Format:" + format, Toast.LENGTH_LONG).show();
+
 
                 Intent sendMessage = new Intent(MainActivity.this, MessageActivity.class);
                 sendMessage.putExtra("qrCode", contents);
