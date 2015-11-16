@@ -64,13 +64,13 @@ public class LoginSignupActivity extends AppCompatActivity {
                                             MainActivity.class);
                                     startActivity(intent);
                                     Toast.makeText(getApplicationContext(),
-                                            "Successfully Logged in",
+                                            "Successfully Logged In",
                                             Toast.LENGTH_LONG).show();
                                     finish();
                                 } else {
                                     Toast.makeText(
                                             getApplicationContext(),
-                                            "No such user exist, please signup",
+                                            "Username and Password Combination Does not Exist, Check Login Information.",
                                             Toast.LENGTH_LONG).show();
                                 }
                             }
@@ -89,7 +89,7 @@ public class LoginSignupActivity extends AppCompatActivity {
                 // Force user to fill up the form
                 if (usernametxt.equals("") && passwordtxt.equals("")) {
                     Toast.makeText(getApplicationContext(),
-                            "Please complete the sign up form",
+                            "Please Complete the Form!",
                             Toast.LENGTH_LONG).show();
 
                 } else {

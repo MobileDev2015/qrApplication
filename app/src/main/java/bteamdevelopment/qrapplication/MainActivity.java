@@ -6,7 +6,6 @@ import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +15,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.zxing.Result;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -24,8 +22,6 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.List;
-
-import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 
 public class MainActivity extends AppCompatActivity  {
@@ -58,18 +54,8 @@ public class MainActivity extends AppCompatActivity  {
 
         // Locate Button in welcome.xml
         logout = (Button) findViewById(R.id.logout);
-        createQR = (Button) findViewById(R.id.createQR);
         myProfile = (Button) findViewById(R.id.myProfile);
-
-
-        createQR.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View arg0) {
-                Intent intent = new Intent(MainActivity.this, QRActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        
 
         // Logout Button Click Listener
         logout.setOnClickListener(new View.OnClickListener() {
