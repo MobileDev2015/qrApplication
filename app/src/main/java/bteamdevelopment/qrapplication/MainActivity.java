@@ -6,29 +6,22 @@ import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseACL;
-import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
-
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity  {
 
     // Declare Variable
     Button logout, myProfile;
-    List<ParseObject> ob;
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
 
@@ -76,47 +69,6 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-    }
-
-    // On Resume Reload ListView (NOT WORKING)
-    @Override
-    public void onResume() {
-        super.onResume();
-        new RemoteDataTask().execute();
-    }
-
-
-    // AsyncTask is designed to be a helper class around Thread and Handler and does not constitute a generic threading framework.
-    // AsyncTasks should ideally be used for short operations (a few seconds at the most.)
-    // RemoteDataTask AsyncTask
-    // Use AsyncTask to get loop through the contactData table on parse.com and create a new contact based on results
-    public class RemoteDataTask extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            // Create New Array List of Objects from Parse.com
-            try {
-                // Query contactData Table on Parse.com
-                ParseQuery<ParseObject> query = new ParseQuery<>("qrData");
-                ob = query.find();
-                // For each object in contactData table
-                for (ParseObject qrData : ob) {
-
-                    // PULL DATA FROM PARSE.COM
-                }
-            } catch (ParseException e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        // On Post setAdapter and Populate ListView
-        @Override
-        public void onPostExecute(Void result) {
-
-            // SET ADAPTER AND DISPLAY RESULTS
-        }
     }
 
     //product qr code mode
