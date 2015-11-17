@@ -18,7 +18,9 @@
         android:id="@+id/TableLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/tbRow5"
+        android:paddingBottom="10dp"
+        android:paddingTop="5dp"
         android:background="@drawable/round_table_shape">
 
     <TableRow
@@ -37,6 +39,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:minWidth="180dp"
             android:text="@string/username"
             android:textSize="18sp" />
 
@@ -110,10 +113,13 @@
 
     </TableRow>
 
+    </TableLayout>
+
     <TableRow
         android:id="@+id/tbRow5"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="15dp">
 
         <Button
@@ -147,6 +153,5 @@
 
     </TableRow>
 
-    </TableLayout>
 
 </RelativeLayout>
