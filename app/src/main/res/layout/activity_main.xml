@@ -7,6 +7,7 @@
 
     <TextView
         android:id="@+id/txtuser"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -51,7 +52,7 @@
         android:text="@string/my_contacts"
         android:textSize="25sp"
         android:id="@+id/myContactsHeader"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_below="@+id/logout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

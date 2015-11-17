@@ -14,55 +14,107 @@
         android:text="@string/app_name"
         android:gravity="center_horizontal"/>
 
-
-    <EditText
-        android:id="@+id/password"
+    <TableLayout
+        android:id="@+id/TableLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/grey"
-        android:inputType="textPassword"
-        android:layout_centerInParent="true"
-        android:background="@color/opaqueWhite"
-        />
-
-    <TextView
-        android:id="@+id/txtpassword"
-        android:textColor="@color/black"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/password"
-        android:textSize="18sp"
-        android:text="@string/password"
-        android:background="@color/opaqueWhite"/>
-
-    <EditText
-        android:id="@+id/username"
-        android:textColor="@color/grey"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/txtpassword"
-        android:inputType="text"
-        android:background="@color/opaqueWhite"
-        />
-
-
-    <TextView
-        android:id="@+id/txtusername"
-        android:textColor="@color/black"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/username"
-        android:layout_above="@+id/username"
-        android:textSize="18sp"
-        android:background="@color/opaqueWhite"/>
-
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/round_table_shape">
 
     <TableRow
-        android:id="@+id/tableRow1"
+        android:id="@+id/tbRow1"
         android:layout_width="fill_parent"
-        android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp" >
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <TextView
+            android:id="@+id/txtusername"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="@string/username"
+            android:textSize="18sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tbRow2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/user"
+            android:drawableStart="@drawable/user"
+            android:textColor="@color/grey"
+            android:inputType="text"
+            android:background="@color/white"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tbRow3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <TextView
+            android:id="@+id/txtpassword"
+            android:textColor="@color/black"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/password" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tbRow4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/lock"
+            android:drawableStart="@drawable/lock"
+            android:textColor="@color/grey"
+            android:inputType="textPassword"
+            android:background="@color/white" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tbRow5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
 
         <Button
             android:id="@+id/login"
@@ -72,22 +124,29 @@
             android:background="@drawable/rounded_corners_white"
             android:padding="15dp"
             android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:minWidth="150dp"
             android:text="@string/log_in" />
 
         <Button
             android:id="@+id/createUser"
             android:layout_weight=".5"
             android:layout_width="fill_parent"
-            android:layout_gravity="end"
-            android:textColor="@color/white"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:background="@drawable/rounded_corners"
             android:padding="15dp"
-            android:layout_marginLeft="20dp"
+            android:minWidth="150dp"
             android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:text="@string/create_user" />
 
     </TableRow>
+
+    </TableLayout>
 
 </RelativeLayout>

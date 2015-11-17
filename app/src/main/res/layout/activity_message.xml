@@ -10,11 +10,13 @@
         android:id="@+id/textViewPhoneNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="@string/qr_code"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/qrCode"
+        android:textColor="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:editable="false">
@@ -22,6 +24,7 @@
 
     <TextView
         android:id="@+id/textViewSMS"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_message"
@@ -32,6 +35,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
+        android:textColor="@color/white"
         android:scrollbars="vertical"
         android:lines="5"
         android:gravity="top"
@@ -47,9 +51,9 @@
         android:id="@+id/buttonSend"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corners"
+        android:background="@drawable/rounded_corners_white"
         android:padding="15dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="@string/send_message" />
