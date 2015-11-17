@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity  {
                 // Add Contents to Parse.com Database
                 ParseObject qrData = new ParseObject("qrData");
 
-                qrData.put("qrCode", contents.toString());
+                qrData.put("qrCode", contents);
 
                 qrData.saveInBackground();
 
