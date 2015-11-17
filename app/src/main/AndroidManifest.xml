@@ -34,10 +34,6 @@
             android:label="@string/title_activity_welcome" >
         </activity>
         <activity
-            android:name="bteamdevelopment.qrapplication.WelcomeActivity"
-            android:label="@string/title_activity_welcome" >
-        </activity>
-        <activity
             android:name="bteamdevelopment.qrapplication.MessageActivity"
             android:label="@string/title_activity_message" >
         </activity>
