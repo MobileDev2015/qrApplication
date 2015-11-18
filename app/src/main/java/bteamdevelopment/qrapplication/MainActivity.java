@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SlidingDrawer;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,13 +20,14 @@ import com.parse.ParseACL;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-
-public class MainActivity extends AppCompatActivity  {
+@SuppressWarnings("deprecation")
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     // Declare Variable
-    Button logout, myProfile;
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
-
+    private static Button slideButton, home, logoutUser, scanQR, myProfile;
+    private static TextView textView;
+    private static SlidingDrawer slidingDrawer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,30 +48,77 @@ public class MainActivity extends AppCompatActivity  {
         // Set the currentUser String into TextView
         txtuser.setText("You are logged in as " + struser);
 
-        // Locate Button in welcome.xml
-        logout = (Button) findViewById(R.id.logout);
+        slideButton = (Button) findViewById(R.id.slideButton);
+        slidingDrawer = (SlidingDrawer) findViewById(R.id.SlidingDrawer);
+        home = (Button) findViewById(R.id.home);
+        scanQR = (Button) findViewById(R.id.scanQR);
         myProfile = (Button) findViewById(R.id.myProfile);
+        logoutUser = (Button) findViewById(R.id.logoutUser);
 
+        // Setting Listeners to all buttons and textview
+        setListeners();
 
-        // Logout Button Click Listener
-        logout.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View arg0) {
-                // Logout current user
-                ParseUser.logOut();
-                Intent intent = new Intent(MainActivity.this, LoginSignupActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        myProfile.setOnClickListener(new View.OnClickListener() {
+        // Listeners for sliding drawer
+        slidingDrawer.setOnDrawerOpenListener(new SlidingDrawer.OnDrawerOpenListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, UserProfile.class);
-                startActivity(intent);
+            public void onDrawerOpened() {
+
+                // Change button text when slider is open
+                slideButton.setText("-");
             }
         });
+
+        slidingDrawer.setOnDrawerCloseListener(new SlidingDrawer.OnDrawerCloseListener() {
+            @Override
+            public void onDrawerClosed() {
+
+                // Change button text when slider is close
+                slideButton.setText("+");
+            }
+        });
+    }
+
+        // Listeners method
+        void setListeners() {
+            home.setOnClickListener(this);
+            myProfile.setOnClickListener(this);
+            scanQR.setOnClickListener(this);
+            logoutUser.setOnClickListener(this);
+        }
+
+    @Override
+    public void onClick(View v) {
+
+        // Toast shown on sliding drawer items click
+        if (v.getId() == R.id.home) {
+            Intent homeIntent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(homeIntent);
+        }
+
+        if (v.getId() == R.id.myProfile)
+        {
+            Intent profileIntent = new Intent(MainActivity.this, UserProfile.class);
+            startActivity(profileIntent);
+        }
+
+        if (v.getId() == R.id.scanQR)
+        {
+            scanQR(v);
+        }
+
+        if (v.getId() == R.id.myProfile)
+        {
+            Intent profileIntent = new Intent(MainActivity.this, UserProfile.class);
+            startActivity(profileIntent);
+        }
+
+        if (v.getId() == R.id.logoutUser)
+        {
+            ParseUser.logOut();
+            Intent intent = new Intent(MainActivity.this, LoginSignupActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
     }
 
@@ -130,11 +181,36 @@ public class MainActivity extends AppCompatActivity  {
 
                 Toast.makeText(this, "Content:" + contents + " Format:" + format, Toast.LENGTH_LONG).show();
 
-
                 Intent sendMessage = new Intent(MainActivity.this, MessageActivity.class);
                 sendMessage.putExtra("qrCode", contents);
                 startActivity(sendMessage);
             }
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);//Menu Resource, Menu
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home:
+                Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.profile:
+                Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.scan:
+                Toast.makeText(getApplicationContext(),"Item 3 Selected",Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.logout:
+                Toast.makeText(getApplicationContext(),"Item 4 Selected",Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }
