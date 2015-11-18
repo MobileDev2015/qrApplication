@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,13 +24,14 @@ import net.glxn.qrgen.android.QRCode;
 /**
  * Created by Andrew on 11/15/2015.
  */
-public class UserProfile extends AppCompatActivity implements View.OnClickListener{
+@SuppressWarnings("deprecation")
+public class UserProfile extends AppCompatActivity implements OnClickListener{
     // Change Password Buttons
-    Button changePassword, btnSave, btnCancel;
-    EditText txtPassword, txtConfirmPassword;
+    Button btnChange, btnSave, btnCancel;
+    EditText txtPassword, txtConfirmPassword, txtUsername;
 
     // Menu Slider
-    private static Button slideButton, home, logoutUser, scanQR, myProfile;
+    private static Button btnSlideButton, btnHome, btnLogoutUser, btnScanQR, btnMyProfile;
     private static TextView textView;
     private static SlidingDrawer slidingDrawer;
 
@@ -39,8 +41,14 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_user_profile);
 
         ImageView qrImage = (ImageView) findViewById(R.id.usersQR);
-        EditText usernameEt = (EditText) findViewById(R.id.username);
-        changePassword = (Button)findViewById(R.id.changePWButton);
+        txtUsername = (EditText) findViewById(R.id.txtUsername);
+        btnChange = (Button)findViewById(R.id.btnChange);
+        btnSlideButton = (Button) findViewById(R.id.slideButton);
+        slidingDrawer = (SlidingDrawer) findViewById(R.id.slidingDrawer);
+        btnHome = (Button) findViewById(R.id.btnHome);
+        btnScanQR = (Button) findViewById(R.id.btnScanQR);
+        btnMyProfile = (Button) findViewById(R.id.btnMyProfile);
+        btnLogoutUser = (Button) findViewById(R.id.btnLogoutUser);
 
         ParseUser user = ParseUser.getCurrentUser();
         String userName = user.getUsername();
@@ -49,15 +57,7 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
 
         qrImage.setImageBitmap(qrBitmap);
 
-        usernameEt.setText("Username: " + user.getUsername());
-        changePassword.setOnClickListener(this);
-
-        slideButton = (Button) findViewById(R.id.slideButton);
-        slidingDrawer = (SlidingDrawer) findViewById(R.id.SlidingDrawer);
-        home = (Button) findViewById(R.id.home);
-        scanQR = (Button) findViewById(R.id.scanQR);
-        myProfile = (Button) findViewById(R.id.myProfile);
-        logoutUser = (Button) findViewById(R.id.logoutUser);
+        txtUsername.setText(user.getUsername());
 
         // Setting Listeners to all buttons and textview
         setListeners();
@@ -68,7 +68,7 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
             public void onDrawerOpened() {
 
                 // Change button text when slider is open
-                slideButton.setText("-");
+                btnSlideButton.setText("-");
             }
         });
 
@@ -77,14 +77,47 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
             public void onDrawerClosed() {
 
                 // Change button text when slider is close
-                slideButton.setText("+");
+                btnSlideButton.setText("+");
             }
         });
     }
 
     @Override
     public void onClick(View v) {
-        if (v == changePassword ) {
+
+        // Toast shown on sliding drawer items click
+        if (v.getId() == R.id.btnHome) {
+            Intent homeIntent = new Intent(UserProfile.this, MainActivity.class);
+            startActivity(homeIntent);
+        }
+
+        if (v.getId() == R.id.btnMyProfile)
+        {
+            Intent profileIntent = new Intent(UserProfile.this, UserProfile.class);
+            startActivity(profileIntent);
+        }
+
+        if (v.getId() == R.id.btnScanQR)
+        {
+            MainActivity scan = new MainActivity();
+            scan.scanQR(v);
+        }
+
+        if (v.getId() == R.id.btnMyProfile)
+        {
+            Intent profileIntent = new Intent(UserProfile.this, UserProfile.class);
+            startActivity(profileIntent);
+        }
+
+        if (v.getId() == R.id.btnLogoutUser)
+        {
+            ParseUser.logOut();
+            Intent intent = new Intent(UserProfile.this, LoginSignupActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        if (v == btnChange ) {
 
             // Create Object of Dialog class
             final Dialog changePw = new Dialog(this);
@@ -99,41 +132,9 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
             txtConfirmPassword = (EditText)changePw.findViewById(R.id.confirmPassword);
 
             // Attached listener for changePw GUI button
-            btnSave.setOnClickListener(new View.OnClickListener() {
+            btnSave.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    // Toast shown on sliding drawer items click
-                    if (v.getId() == R.id.home) {
-                        Intent homeIntent = new Intent(UserProfile.this, MainActivity.class);
-                        startActivity(homeIntent);
-                    }
-
-                    if (v.getId() == R.id.myProfile)
-                    {
-                        Intent profileIntent = new Intent(UserProfile.this, UserProfile.class);
-                        startActivity(profileIntent);
-                    }
-
-                    if (v.getId() == R.id.scanQR)
-                    {
-                        MainActivity scan = new MainActivity();
-                        scan.scanQR(v);
-                    }
-
-                    if (v.getId() == R.id.myProfile)
-                    {
-                        Intent profileIntent = new Intent(UserProfile.this, UserProfile.class);
-                        startActivity(profileIntent);
-                    }
-
-                    if (v.getId() == R.id.logoutUser)
-                    {
-                        ParseUser.logOut();
-                        Intent intent = new Intent(UserProfile.this, LoginSignupActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
 
                     // Change Password Button OnclickListeners
                     if (checkPassword())
@@ -162,7 +163,7 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
 
                 }
             });
-            btnCancel.setOnClickListener(new View.OnClickListener() {
+            btnCancel.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     changePw.dismiss();
@@ -176,10 +177,12 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
 
     // Listeners method
     void setListeners() {
-        home.setOnClickListener(this);
-        myProfile.setOnClickListener(this);
-        scanQR.setOnClickListener(this);
-        logoutUser.setOnClickListener(this);
+        btnHome.setOnClickListener(this);
+        btnMyProfile.setOnClickListener(this);
+        btnScanQR.setOnClickListener(this);
+        btnLogoutUser.setOnClickListener(this);
+        btnChange.setOnClickListener(this);
+
     }
 
     public Boolean checkPassword()
@@ -203,17 +206,19 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.home:
-                Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
+            case R.id.menu_home:
+                Intent homeIntent = new Intent(UserProfile.this, MainActivity.class);
+                startActivity(homeIntent);
                 return true;
-            case R.id.profile:
-                Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
+            case R.id.menu_profile:
+                Intent profileIntent = new Intent(UserProfile.this, UserProfile.class);
+                startActivity(profileIntent);
                 return true;
-            case R.id.scan:
-                Toast.makeText(getApplicationContext(),"Item 3 Selected",Toast.LENGTH_LONG).show();
-                return true;
-            case R.id.logout:
-                Toast.makeText(getApplicationContext(),"Item 4 Selected",Toast.LENGTH_LONG).show();
+            case R.id.menu_logout:
+                ParseUser.logOut();
+                Intent intent = new Intent(UserProfile.this, LoginSignupActivity.class);
+                startActivity(intent);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

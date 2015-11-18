@@ -33,7 +33,7 @@
 
     <!-- Sliding drawer containing one handle view and one content layout that is hidden -->
     <SlidingDrawer
-        android:id="@+id/SlidingDrawer"
+        android:id="@+id/slidingDrawer"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
         android:content="@+id/contentLayout"
@@ -65,7 +65,7 @@
             android:padding="10dip" >
 
             <Button
-                android:id="@+id/home"
+                android:id="@+id/btnHome"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -75,7 +75,7 @@
             </Button>
 
             <Button
-                android:id="@+id/scanQR"
+                android:id="@+id/btnScanQR"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -85,7 +85,7 @@
             </Button>
 
             <Button
-                android:id="@+id/myProfile"
+                android:id="@+id/btnMyProfile"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -95,7 +95,7 @@
             </Button>
 
             <Button
-                android:id="@+id/logoutUser"
+                android:id="@+id/btnLogoutUser"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="@string/username"
         android:textColor="@color/white"
-        android:id="@+id/username"
+        android:id="@+id/txtUsername"
         android:layout_alignParentTop="true"
         android:editable="false"/>
 
@@ -19,21 +19,21 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corners"
         android:textColor="@color/white"
-        android:layout_below="@id/username"
+        android:layout_below="@id/txtUsername"
         android:text="@string/change_password"
-        android:id="@+id/changePWButton"/>
+        android:id="@+id/btnChange"/>
 
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:minHeight="350dp"
-        android:layout_below="@id/changePWButton"
+        android:layout_below="@id/btnChange"
         android:id="@+id/usersQR"/>
 
     <!-- Sliding drawer containing one handle view and one content layout that is hidden -->
     <SlidingDrawer
-        android:id="@+id/SlidingDrawer"
+        android:id="@+id/slidingDrawer"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
         android:content="@+id/contentLayout"
@@ -64,7 +64,7 @@
             android:padding="10dip" >
 
             <Button
-                android:id="@+id/home"
+                android:id="@+id/btnHome"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -74,7 +74,7 @@
             </Button>
 
             <Button
-                android:id="@+id/scanQR"
+                android:id="@+id/btnScanQR"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -84,7 +84,7 @@
             </Button>
 
             <Button
-                android:id="@+id/myProfile"
+                android:id="@+id/btnMyProfile"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -94,7 +94,7 @@
             </Button>
 
             <Button
-                android:id="@+id/logoutUser"
+                android:id="@+id/btnLogoutUser"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
