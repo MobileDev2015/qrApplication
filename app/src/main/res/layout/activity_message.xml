@@ -19,6 +19,7 @@
         android:textColor="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/Green"
         android:editable="false">
     </EditText>
 
@@ -35,11 +36,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:scrollbars="vertical"
         android:lines="5"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="top"
-        android:background="@color/white"/>
+        android:background="@drawable/green_border_message_box"/>
 
     <TableRow
         android:id="@+id/tableRow1"
