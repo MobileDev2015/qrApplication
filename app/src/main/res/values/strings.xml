@@ -4,10 +4,12 @@
     <string name="app_name">qrApplication</string>
 
     <!--Activities-->
-    <string name="title_activity_message">MessageActivity</string>
+    <string name="title_activity_message">My Messages</string>
     <string name="title_activity_user_profile">My Profile</string>
     <string name="title_activity_login_signup">Login - Sign-Up</string>
     <string name="title_activity_welcome">Welcome</string>
+    <string name="title_activity_user_list">Message List</string>
+    <string name="title_activity_chat">Chat</string>
 
     <!--Menu-->
     <string name="action_settings">Settings</string>
@@ -32,10 +34,6 @@
     <string name="create_user">Create User</string>
     <string name="log_out">Log Out</string>
 
-    <!--Colors-->
-    <color name="grey">#222222</color>
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
 
     <!-- Strings related to login -->
     <string name="prompt_username">Username</string>
@@ -44,6 +42,30 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="change_password">Change Password</string>
     <string name="prompt_password_again">Password Again</string>
+
+
+
+    <!-- Messages -->
+    <string name="type_msg">Type message</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="or">or</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="forgot_my_pwd">I’ve forgotten my password?</string>
+    <string name="my_chats">My Chats</string>
+    <string name="all_chats">All Chats</string>
+    <string name="search">Search</string>
+    <string name="to">To:</string>
+    <string name="edit">Edit</string>
+    <string name="new_chat">New Chat</string>
+    <string name="alert_wait">Please wait...</string>
+    <string name="err_fields_empty">Please fill all the fields.</string>
+    <string name="err_singup">Error occurred while signup:</string>
+    <string name="err_login">Error occurred while login:</string>
+    <string name="err_users">Error occurred while finding users:</string>
+    <string name="alert_loading">Loading...</string>
+    <string name="msg_no_user_found">No users found for chat!</string>
 
 
 </resources>
