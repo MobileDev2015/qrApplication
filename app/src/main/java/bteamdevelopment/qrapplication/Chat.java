@@ -5,6 +5,7 @@ package bteamdevelopment.qrapplication;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
@@ -32,7 +33,6 @@ import java.util.List;
 
 import bteamdevelopment.qrapplication.custom.CustomActivity;
 import bteamdevelopment.qrapplication.model.Conversation;
-import bteamdevelopment.qrapplication.utils.Const;
 
 /**
  * The Class Chat is the Activity class that holds main chat screen. It shows
@@ -85,7 +85,8 @@ public class Chat extends CustomActivity
 
         setTouchNClick(R.id.btnSend);
 
-        buddy = getIntent().getStringExtra(Const.EXTRA_DATA);
+        Intent i = getIntent();
+        buddy = i.getStringExtra("sender");
 
         handler = new Handler();
     }

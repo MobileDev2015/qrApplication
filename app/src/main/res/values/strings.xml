@@ -44,7 +44,6 @@
     <string name="prompt_password_again">Password Again</string>
 
 
-
     <!-- Messages -->
     <string name="type_msg">Type message</string>
     <string name="drawer_open">Open</string>
@@ -58,6 +57,8 @@
     <string name="search">Search</string>
     <string name="to">To:</string>
     <string name="edit">Edit</string>
+    <string name="sender">From:</string>
+    <string name="receiver">To:</string>
     <string name="new_chat">New Chat</string>
     <string name="alert_wait">Please wait...</string>
     <string name="err_fields_empty">Please fill all the fields.</string>
@@ -66,6 +67,9 @@
     <string name="err_users">Error occurred while finding users:</string>
     <string name="alert_loading">Loading...</string>
     <string name="msg_no_user_found">No users found for chat!</string>
+
+    <!--Misc.-->
+    <string name="placeholder">Placeholder Text</string>
 
 
 </resources>

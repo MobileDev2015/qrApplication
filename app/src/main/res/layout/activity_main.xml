@@ -19,8 +19,7 @@
         android:layout_height="wrap_content"
         android:divider="@color/main_color_green"
         android:layout_below="@id/txtuser"
-        android:dividerHeight="1dp"
-        tools:listitem="@layout/chat_item">
+        android:dividerHeight="1dp">
     </ListView>
 
 
@@ -29,7 +28,7 @@
     <SlidingDrawer
         android:id="@+id/slidingDrawer"
         android:layout_width="wrap_content"
-        android:layout_height="400dp"
+        android:layout_height="300dp"
         android:content="@+id/contentLayout"
         android:handle="@+id/slideButton"
         android:orientation="vertical"
@@ -97,18 +96,6 @@
                 android:text="@string/log_out"
                 android:textColor="#ffffff" >
             </Button>
-
-            <Button
-                android:id="@+id/btnMessages"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:background="@drawable/button_selector"
-                android:text="@string/title_activity_message"
-                android:textColor="#ffffff" >
-            </Button>
-
-
 
         </LinearLayout>
     </SlidingDrawer>

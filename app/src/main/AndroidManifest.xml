@@ -42,10 +42,6 @@
             android:label="@string/title_activity_user_profile" >
         </activity>
         <activity
-            android:name="bteamdevelopment.qrapplication.UserList"
-            android:label="@string/title_activity_chat" >
-        </activity>
-        <activity
             android:name="bteamdevelopment.qrapplication.Chat"
             android:label="@string/title_activity_chat" >
         </activity>

@@ -8,6 +8,7 @@
     <color name="transparent">#00000000</color>
     <color name="grey">#222222</color>
 
+    <color name="light_green">#9cf99c</color>
     <color name="main_color_green">#00ff00</color>
     <color name="main_color_gray_dk">#3b3b3b</color>
     <color name="main_color_gray_lt">#acacac</color>
