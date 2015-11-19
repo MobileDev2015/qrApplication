@@ -25,6 +25,7 @@ import com.parse.FindCallback;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static SlidingDrawer slidingDrawer;
     /** The Chat list. */
     private ArrayList<ParseUser> uList;
+    private ArrayList<ParseObject> oList;
 
     /** The user. */
     public static ParseUser user;
@@ -272,93 +274,107 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 getString(R.string.alert_loading));
         // Retrieve current user from Parse.com
         ParseUser currentUser = ParseUser.getCurrentUser();
-        ParseUser.getQuery().whereNotEqualTo("username", currentUser.getUsername())
-                .findInBackground(new FindCallback<ParseUser>() {
 
-                    @Override
-                    public void done(List<ParseUser> li, ParseException e) {
-                        dia.dismiss();
-                        if (li != null) {
-                            if (li.size() == 0)
-                                Toast.makeText(MainActivity.this,
-                                        R.string.msg_no_user_found,
-                                        Toast.LENGTH_SHORT).show();
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Chat");
+        query.whereEqualTo("receiver", currentUser.getUsername());
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    // If there is an object to be updated...
+                    if (objects.size() != 0) {
+                        // Get Object
+                        oList = new ArrayList<ParseObject>(objects);
+                        // Convert ID to String
 
-                            uList = new ArrayList<ParseUser>(li);
-                            ListView list = (ListView) findViewById(R.id.list);
-                            list.setAdapter(new UserAdapter());
-                            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        Toast.makeText(MainActivity.this, oList.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
 
-                                @Override
-                                public void onItemClick(AdapterView<?> arg0,
-                                                        View arg1, int pos, long arg3) {
-                                    startActivity(new Intent(MainActivity.this,
-                                            Chat.class).putExtra(
-                                            Const.EXTRA_DATA, uList.get(pos)
-                                                    .getUsername()));
-                                }
-                            });
-                        } else {
-                            Utils.showDialog(
-                                    MainActivity.this,
-                                    getString(R.string.err_users) + " "
-                                            + e.getMessage());
-                            e.printStackTrace();
+                            ParseUser.getQuery().whereNotEqualTo("username", currentUser.getUsername())
+                                    .findInBackground(new FindCallback<ParseUser>() {
+
+                                        @Override
+                                        public void done(List<ParseUser> li, ParseException e) {
+                                            dia.dismiss();
+                                            if (li != null) {
+                                                if (li.size() == 0)
+                                                    Toast.makeText(MainActivity.this,
+                                                            R.string.msg_no_user_found,
+                                                            Toast.LENGTH_SHORT).show();
+
+                                                uList = new ArrayList<ParseUser>(li);
+                                                ListView list = (ListView) findViewById(R.id.list);
+                                                list.setAdapter(new UserAdapter());
+                                                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                                                    @Override
+                                                    public void onItemClick(AdapterView<?> arg0,
+                                                                            View arg1, int pos, long arg3) {
+                                                        startActivity(new Intent(MainActivity.this,
+                                                                Chat.class).putExtra(
+                                                                Const.EXTRA_DATA, uList.get(pos)
+                                                                        .getUsername()));
+                                                    }
+                                                });
+                                            } else {
+                                                Utils.showDialog(
+                                                        MainActivity.this,
+                                                        getString(R.string.err_users) + " "
+                                                                + e.getMessage());
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    });
+                        }
+
+                        /**
+                         * The Class UserAdapter is the adapter class for User ListView. This
+                         * adapter shows the user name.
+                         */
+                        private class UserAdapter extends BaseAdapter {
+
+                            /* (non-Javadoc)
+                             * @see android.widget.Adapter#getCount()
+                             */
+                            @Override
+                            public int getCount() {
+                                return uList.size();
+                            }
+
+                            /* (non-Javadoc)
+                             * @see android.widget.Adapter#getItem(int)
+                             */
+                            @Override
+                            public ParseUser getItem(int arg0) {
+                                return uList.get(arg0);
+                            }
+
+                            /* (non-Javadoc)
+                             * @see android.widget.Adapter#getItemId(int)
+                             */
+                            @Override
+                            public long getItemId(int arg0) {
+                                return arg0;
+                            }
+
+                            /* (non-Javadoc)
+                             * @see android.widget.Adapter#getView(int, android.view.View, android.view.ViewGroup)
+                             */
+                            @Override
+                            public View getView(int pos, View v, ViewGroup arg2) {
+                                if (v == null)
+                                    v = getLayoutInflater().inflate(R.layout.chat_item, null);
+
+                                ParseUser c = getItem(pos);
+                                TextView lbl = (TextView) v;
+                                lbl.setText(c.getUsername());
+                                lbl.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_online, 0, R.drawable.arrow, 0);
+
+                                return v;
+                            }
+
                         }
                     }
-                });
-    }
-
-    /**
-     * The Class UserAdapter is the adapter class for User ListView. This
-     * adapter shows the user name and it's only online status for each item.
-     */
-    private class UserAdapter extends BaseAdapter
-    {
-
-        /* (non-Javadoc)
-         * @see android.widget.Adapter#getCount()
-         */
-        @Override
-        public int getCount()
-        {
-            return uList.size();
-        }
-
-        /* (non-Javadoc)
-         * @see android.widget.Adapter#getItem(int)
-         */
-        @Override
-        public ParseUser getItem(int arg0)
-        {
-            return uList.get(arg0);
-        }
-
-        /* (non-Javadoc)
-         * @see android.widget.Adapter#getItemId(int)
-         */
-        @Override
-        public long getItemId(int arg0)
-        {
-            return arg0;
-        }
-
-        /* (non-Javadoc)
-         * @see android.widget.Adapter#getView(int, android.view.View, android.view.ViewGroup)
-         */
-        @Override
-        public View getView(int pos, View v, ViewGroup arg2)
-        {
-            if (v == null)
-                v = getLayoutInflater().inflate(R.layout.chat_item, null);
-
-            ParseUser c = getItem(pos);
-            TextView lbl = (TextView) v;
-            lbl.setText(c.getUsername());
-            lbl.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_online, 0, R.drawable.arrow, 0);
-
-            return v;
-        }
-
-    }
-}
