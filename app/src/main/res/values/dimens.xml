@@ -3,11 +3,17 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="pad_5dp">5dp</dimen>
+        <dimen name="pad_2dp">2dp</dimen>
+        <dimen name="pad_4dp">4dp</dimen>
+        <dimen name="pad_5dp">5dp</dimen>
         <dimen name="pad_10dp">10dp</dimen>
+        <dimen name="pad_16dp">16dp</dimen>
         <dimen name="pad_15dp">15dp</dimen>
         <dimen name="pad_20dp">20dp</dimen>
         <dimen name="pad_30dp">30dp</dimen>
+        <dimen name="pad_40dp">40dp</dimen>
+        <dimen name="pad_50dp">50dp</dimen>
+
         <dimen name="pad_chat_item">45dp</dimen>
         <dimen name="pad_chat_item1">10dp</dimen>
 

@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="@drawable/logonew"
-    android:padding="10dip">
+    android:padding="@dimen/pad_10dp">
 
 
     <TextView
@@ -19,8 +19,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tbRow5"
-        android:paddingBottom="10dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="@dimen/pad_10dp"
+        android:paddingTop="@dimen/pad_5dp"
         android:background="@drawable/round_table_shape">
 
     <TableRow
@@ -29,10 +29,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
+        android:layout_marginRight="@dimen/pad_40dp"
+        android:layout_marginLeft="@dimen/pad_30dp"
+        android:layout_marginStart="@dimen/pad_30dp"
+        android:layout_marginEnd="@dimen/pad_30dp">
 
         <TextView
             android:id="@+id/txtusername"
@@ -50,10 +50,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
+        android:layout_marginRight="@dimen/pad_30dp"
+        android:layout_marginLeft="@dimen/pad_30dp"
+        android:layout_marginStart="@dimen/pad_30dp"
+        android:layout_marginEnd="@dimen/pad_30dp">
 
         <EditText
             android:id="@+id/username"
@@ -62,7 +62,7 @@
             android:drawableLeft="@drawable/user"
             android:drawableStart="@drawable/user"
             android:textColor="@color/grey"
-            android:textSize="14sp"
+            android:textSize="@dimen/txt_14sp"
             android:inputType="text"
             android:background="@color/white"
             />
@@ -75,10 +75,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
+        android:layout_marginRight="@dimen/pad_40dp"
+        android:layout_marginLeft="@dimen/pad_30dp"
+        android:layout_marginStart="@dimen/pad_30dp"
+        android:layout_marginEnd="@dimen/pad_30dp">
 
         <TextView
             android:id="@+id/txtpassword"
@@ -95,10 +95,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
+        android:layout_marginRight="@dimen/pad_30dp"
+        android:layout_marginLeft="@dimen/pad_30dp"
+        android:layout_marginStart="@dimen/pad_30dp"
+        android:layout_marginEnd="@dimen/pad_30dp">
 
         <EditText
             android:id="@+id/password"
@@ -107,7 +107,7 @@
             android:drawableLeft="@drawable/lock"
             android:drawableStart="@drawable/lock"
             android:textColor="@color/grey"
-            android:textSize="14sp"
+            android:textSize="@dimen/txt_14sp"
             android:inputType="textPassword"
             android:background="@color/white" />
 
@@ -120,7 +120,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="@dimen/pad_15dp">
 
         <Button
             android:id="@+id/login"
@@ -129,10 +129,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners_white"
             android:padding="15dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginRight="@dimen/pad_20dp"
+            android:layout_marginEnd="@dimen/pad_20dp"
+            android:layout_marginLeft="@dimen/pad_20dp"
+            android:layout_marginStart="@dimen/pad_20dp"
             android:minWidth="150dp"
             android:text="@string/log_in" />
 
@@ -143,12 +143,12 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:background="@drawable/rounded_corners"
-            android:padding="15dp"
+            android:padding="@dimen/pad_15dp"
             android:minWidth="150dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginRight="@dimen/pad_20dp"
+            android:layout_marginEnd="@dimen/pad_20dp"
+            android:layout_marginLeft="@dimen/pad_20dp"
+            android:layout_marginStart="@dimen/pad_20dp"
             android:text="@string/create_user" />
 
     </TableRow>
