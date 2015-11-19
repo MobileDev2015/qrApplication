@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // Declare Variable
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
-    private static Button slideButton, btnHome, btnLogoutUser, btnScanQR, btnMyProfile;
+    private static Button slideButton, btnHome, btnLogoutUser, btnScanQR, btnMyProfile, btnMessages;
     private static TextView textView;
     private static SlidingDrawer slidingDrawer;
 
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView txtuser = (TextView) findViewById(R.id.txtuser);
 
         // Set the currentUser String into TextView
-        txtuser.setText("You are logged in as " + struser);
+        txtuser.setText(" You are logged in as " + struser);
 
         slideButton = (Button) findViewById(R.id.slideButton);
         slidingDrawer = (SlidingDrawer) findViewById(R.id.slidingDrawer);
@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
             finish();
         }
+
 
     }
 

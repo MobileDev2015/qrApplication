@@ -18,7 +18,7 @@
 
     <!--User Messages-->
     <string name="Welcome">Welcome!</string>
-    <string name="my_contacts">My Messages</string>
+    <string name="my_messages">My Messages</string>
     <string name="qr_code">QR Code</string>
     <string name="enter_message">Enter Message</string>
     <string name="send_message">Send Message</string>
