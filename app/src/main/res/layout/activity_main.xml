@@ -12,6 +12,7 @@
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingRight="@dimen/pad_10dp"
         android:layout_alignParentTop="true"
         android:textColor="@color/white"/>
 
@@ -19,8 +20,14 @@
         android:id="@+id/myMessages"
         android:layout_width="wrap_content"
         android:text="@string/my_messages"
-        android:textSize="@dimen/txt_20sp"
-        android:textColor="@color/white"
+        android:textSize="@dimen/txt_24sp"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="4"
+        android:textStyle="bold|italic"
+        android:paddingBottom="@dimen/pad_10dp"
+        android:textColor="@color/main_color_green"
         android:layout_height="wrap_content" />
 
     <ListView
@@ -28,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@color/main_color_green"
-        android:layout_below="@id/txtuser"
+        android:layout_below="@id/myMessages"
         android:dividerHeight="1dp">
     </ListView>
 

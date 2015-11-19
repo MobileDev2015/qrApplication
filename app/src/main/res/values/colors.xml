@@ -14,4 +14,9 @@
     <color name="main_color_gray_lt">#acacac</color>
     <color name="main_color_gray">#7d7d7d</color>
     <color name="gray_light">#e8e8e8</color>
+
+    <color name="light_font">#FBFBFB</color>
+    <color name="grey_font">#ff9e9e9e</color>
+    <color name="text_shadow">#FFFFFF</color>
+    <color name="text_shadow_white">#FFFFFF</color>
 </resources>
