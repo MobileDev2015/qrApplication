@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -97,6 +98,12 @@ public class LoginSignupActivity extends AppCompatActivity {
                     ParseUser user = new ParseUser();
                     user.setUsername(usernametxt);
                     user.setPassword(passwordtxt);
+
+                    // Save qrCode (Username) to qrData on parse.com
+                    ParseObject qrCode = new ParseObject("qrData");
+                    qrCode.put("qrCode", usernametxt);
+                    qrCode.saveInBackground();
+
                     user.signUpInBackground(new SignUpCallback() {
                         public void done(ParseException e) {
                             if (e == null) {
@@ -119,15 +126,10 @@ public class LoginSignupActivity extends AppCompatActivity {
 
     public void saveQrToGallery(){
 
-        // get the image from the imageview to save as bitmap
-        //ImageView canvas = (ImageView)findViewById(R.id.canvasImage);
-        //canvas.setDrawingCacheEnabled(true);
-        //Bitmap canvasBM = canvas.getDrawingCache();
-
         ParseUser user = ParseUser.getCurrentUser();
-
         String userName = user.getUsername();
 
+        // QRCode Image
         Bitmap qrBitmap = QRCode.from(userName).bitmap();
 
         //create the new file with following filePath
