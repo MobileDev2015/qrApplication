@@ -4,11 +4,10 @@
     <string name="app_name">qrApplication</string>
 
     <!--Activities-->
-    <string name="title_activity_message">My Messages</string>
+    <string name="title_activity_message">Send Messages</string>
     <string name="title_activity_user_profile">My Profile</string>
     <string name="title_activity_login_signup">Login - Sign-Up</string>
     <string name="title_activity_welcome">Welcome</string>
-    <string name="title_activity_user_list">Message List</string>
     <string name="title_activity_chat">Chat</string>
 
     <!--Menu-->

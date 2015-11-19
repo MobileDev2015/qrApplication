@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linearLayout1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/grey">
 
@@ -16,6 +16,7 @@
 
     <EditText
         android:id="@+id/qrCode"
+        android:layout_below="@id/textViewPhoneNo"
         android:textColor="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -25,6 +26,7 @@
 
     <TextView
         android:id="@+id/textViewSMS"
+        android:layout_below="@id/qrCode"
         android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,6 +35,7 @@
 
     <EditText
         android:id="@+id/editTextSMS"
+        android:layout_below="@id/textViewSMS"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
@@ -49,6 +52,7 @@
         android:id="@+id/tableRow1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/editTextSMS"
         android:layout_marginTop="15dp" >
 
     <Button
@@ -139,4 +143,4 @@
 
         </LinearLayout>
     </SlidingDrawer>
-</LinearLayout>
+</RelativeLayout>
