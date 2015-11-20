@@ -19,16 +19,27 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corners"
         android:textColor="@color/white"
+        android:textSize="@dimen/txt_10sp"
         android:layout_below="@id/txtUsername"
         android:text="@string/change_password"
         android:id="@+id/btnChange"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_10sp"
+        android:layout_below="@id/btnChange"
+        android:text="@string/re_save"
+        android:id="@+id/btnReSave"/>
 
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/pad_10dp"
         android:minHeight="350dp"
-        android:layout_below="@id/btnChange"
+        android:layout_below="@id/btnReSave"
         android:id="@+id/usersQR"/>
 
     <!-- Sliding drawer containing one handle view and one content layout that is hidden -->

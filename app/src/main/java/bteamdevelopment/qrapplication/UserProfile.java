@@ -27,7 +27,7 @@ import net.glxn.qrgen.android.QRCode;
 @SuppressWarnings("deprecation")
 public class UserProfile extends AppCompatActivity implements OnClickListener{
     // Change Password Buttons
-    Button btnChange, btnSave, btnCancel;
+    Button btnChange, btnSave, btnCancel, btnreSave;
     EditText txtPassword, txtConfirmPassword, txtUsername;
 
     // Menu Slider
@@ -49,6 +49,7 @@ public class UserProfile extends AppCompatActivity implements OnClickListener{
         btnScanQR = (Button) findViewById(R.id.btnScanQR);
         btnMyProfile = (Button) findViewById(R.id.btnMyProfile);
         btnLogoutUser = (Button) findViewById(R.id.btnLogoutUser);
+        btnreSave = (Button) findViewById(R.id.btnReSave);
 
         ParseUser user = ParseUser.getCurrentUser();
         String userName = user.getUsername();
@@ -91,30 +92,40 @@ public class UserProfile extends AppCompatActivity implements OnClickListener{
             startActivity(homeIntent);
         }
 
+        // Go to Profile Activity
         if (v.getId() == R.id.btnMyProfile)
         {
             Intent profileIntent = new Intent(UserProfile.this, UserProfile.class);
             startActivity(profileIntent);
         }
 
+        // Launch Scan Activity
         if (v.getId() == R.id.btnScanQR)
         {
             MainActivity scan = new MainActivity();
             scan.scanQR(v);
         }
 
+        // View Profile Intent
         if (v.getId() == R.id.btnMyProfile)
         {
             Intent profileIntent = new Intent(UserProfile.this, UserProfile.class);
             startActivity(profileIntent);
         }
 
+        // Log User Out - Return to Sign Up/Sign In Form
         if (v.getId() == R.id.btnLogoutUser)
         {
             ParseUser.logOut();
             Intent intent = new Intent(UserProfile.this, LoginSignupActivity.class);
             startActivity(intent);
             finish();
+        }
+
+        // Re-Save Image to Device
+        if (v == btnreSave) {
+            LoginSignupActivity reSave = new LoginSignupActivity();
+            reSave.saveQrToGallery();
         }
 
         if (v == btnChange ) {
@@ -182,6 +193,7 @@ public class UserProfile extends AppCompatActivity implements OnClickListener{
         btnScanQR.setOnClickListener(this);
         btnLogoutUser.setOnClickListener(this);
         btnChange.setOnClickListener(this);
+        btnreSave.setOnClickListener(this);
 
     }
 

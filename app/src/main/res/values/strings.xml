@@ -22,6 +22,7 @@
     <string name="qr_code">QR Code</string>
     <string name="enter_message">Enter Message</string>
     <string name="send_message">Send Message</string>
+    <string name="re_save">Save to Device</string>
 
     <!-- Strings related to login -->
     <string name="username">Username</string>
