@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         // Get the view
         setContentView(R.layout.activity_main);
 
@@ -265,6 +266,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 ParseQuery<ParseObject> query = new ParseQuery<>("Chat");
                 query.whereEqualTo("receiver",currentUser.getUsername());
+                query.orderByAscending("createdAt");
                 ob = query.find();
                 // For each object in contactData table
                 for (ParseObject messageData : ob) {

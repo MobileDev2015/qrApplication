@@ -25,7 +25,6 @@ public class Message extends ArrayList<Message> {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
-
     }
 
     public String getId() {
