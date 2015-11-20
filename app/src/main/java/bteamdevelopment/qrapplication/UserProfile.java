@@ -126,6 +126,7 @@ public class UserProfile extends AppCompatActivity implements OnClickListener{
         if (v == btnreSave) {
             LoginSignupActivity reSave = new LoginSignupActivity();
             reSave.saveQrToGallery();
+            Toast.makeText(UserProfile.this, "QR Code Saved to Gallery...", Toast.LENGTH_SHORT).show();
         }
 
         if (v == btnChange ) {

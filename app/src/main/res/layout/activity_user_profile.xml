@@ -5,41 +5,59 @@
     android:orientation="vertical"
     android:background="@color/grey">
 
+    <TextView
+        android:id="@+id/myProfile"
+        android:layout_width="wrap_content"
+        android:text="@string/myProfile"
+        android:textSize="@dimen/txt_24sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/main_color_green"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/username"
         android:textColor="@color/white"
+        android:layout_below="@id/myProfile"
         android:id="@+id/txtUsername"
-        android:layout_alignParentTop="true"
         android:editable="false"/>
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/txtUsername">
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_weight=".5"
         android:background="@drawable/rounded_corners"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_10sp"
-        android:layout_below="@id/txtUsername"
         android:text="@string/change_password"
         android:id="@+id/btnChange"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_weight=".5"
         android:background="@drawable/rounded_corners"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_10sp"
-        android:layout_below="@id/btnChange"
         android:text="@string/re_save"
         android:id="@+id/btnReSave"/>
+
+    </TableRow>
 
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/pad_10dp"
-        android:minHeight="350dp"
-        android:layout_below="@id/btnReSave"
+        android:minHeight="320dp"
+        android:layout_below="@id/tableRow1"
         android:id="@+id/usersQR"/>
 
     <!-- Sliding drawer containing one handle view and one content layout that is hidden -->
