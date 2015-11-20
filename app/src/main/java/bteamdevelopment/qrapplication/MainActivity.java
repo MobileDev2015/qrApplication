@@ -266,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 ParseQuery<ParseObject> query = new ParseQuery<>("Chat");
                 query.whereEqualTo("receiver",currentUser.getUsername());
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 ob = query.find();
                 // For each object in contactData table
                 for (ParseObject messageData : ob) {
