@@ -14,9 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.parse.ParseObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,7 +90,7 @@ public class ListViewAdapter extends BaseAdapter {
                 AlertDialog.Builder test = new AlertDialog.Builder(context);
                 test.setTitle("Delete Message");
                 test.setMessage("Are you sure you want to delete the message?");
-                test.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                test.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
                         ParseObject.createWithoutData("Chat", messageList.get(position).getId()).deleteEventually();
