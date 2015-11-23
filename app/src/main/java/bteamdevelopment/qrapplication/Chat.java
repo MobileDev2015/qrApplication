@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
+import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -148,7 +149,13 @@ public class Chat extends CustomActivity
         adp.notifyDataSetChanged();
         txt.setText(null);
 
+        ParseACL defaultACL = new ParseACL();
+        defaultACL.setPublicReadAccess(true);
+        defaultACL.setPublicWriteAccess(true); //objects created are writable
+        ParseACL.setDefaultACL(defaultACL, true);
+
         ParseObject po = new ParseObject("Chat");
+        po.setACL(defaultACL);
         po.put("sender", currentUser.getUsername());
         po.put("receiver", buddy);
         // po.put("createdAt", "");

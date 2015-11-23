@@ -4,13 +4,18 @@ package bteamdevelopment.qrapplication;
  * Created by wkohusjr on 11/19/2015.
  */
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.parse.ParseObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +28,8 @@ public class ListViewAdapter extends BaseAdapter {
     LayoutInflater inflater;
     private List<Message> messageList = null;
     private ArrayList<Message> arraylist;
+    AlertDialog test;
+    Dialog colorDialog;
 
     // Constructor
     public ListViewAdapter(Context context,
@@ -73,32 +80,60 @@ public class ListViewAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
+
         // Set the results into TextViews
         holder.sender.setText(messageList.get(position).getSender());
-//        holder.receiver.setText(messageList.get(position).getReceiver());
+
         holder.message.setText(messageList.get(position).getMessage());
+
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                AlertDialog.Builder test = new AlertDialog.Builder(context);
+                test.setTitle("Delete Message");
+                test.setMessage("Are you sure you want to delete the message?");
+                test.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        ParseObject.createWithoutData("Chat", messageList.get(position).getId()).deleteEventually();
+                        dialog.dismiss();
+                        Intent intent = new Intent(context, MainActivity.class);
+                        context.startActivity(intent);
+
+                    }
+                });
+
+                // Cancel Save
+                test.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                test.show();
+
+                return false;
+            }
+        });
 
         // Listen for ListView Item Click
         view.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-                // Send single item click data to UpdateActivity Class
+
+                // Send single item click data to Chat Class
                 Intent intent = new Intent(context, Chat.class);
                 // Pass all data ID
                 intent.putExtra("objectId",
                         messageList.get(position).getId());
-                // Pass all data First Name
+                // Pass all data Sender
                 intent.putExtra("sender",
                         (messageList.get(position).getSender()));
-                // Pass all data Last Name
-                intent.putExtra("receiver",
-                        (messageList.get(position).getReceiver()));
-                // Pass all data Mobile
+                // Pass all data Message
                 intent.putExtra("message",
                         (messageList.get(position).getMessage()));
 
-                // Start UpdateActivity Class
+                // Start Chat Class
                 context.startActivity(intent);
             }
         });

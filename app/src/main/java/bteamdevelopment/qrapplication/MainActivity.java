@@ -299,6 +299,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             listview.setAdapter(adapter);
             listview.deferNotifyDataSetChanged();
+
         }
     }
 }
