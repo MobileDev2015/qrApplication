@@ -23,7 +23,9 @@ import android.widget.TextView;
 import com.parse.FindCallback;
 import com.parse.ParseACL;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -294,6 +296,7 @@ public class Chat extends CustomActivity
             {
                 if (c.getStatus() == Conversation.STATUS_SENT)
                     lbl.setText("Delivered");
+
                 else if (c.getStatus() == Conversation.STATUS_SENDING)
                     lbl.setText("Sending...");
                 else
@@ -301,6 +304,13 @@ public class Chat extends CustomActivity
             }
             else
                 lbl.setText("");
+
+            ParseQuery pushQuery = ParseInstallation.getQuery();
+            pushQuery.whereEqualTo("username", buddy );
+            ParsePush push = new ParsePush();
+            push.setQuery(pushQuery);
+            push.setMessage("You have a push notification");
+            push.sendInBackground();
 
             return v;
         }
