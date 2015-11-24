@@ -14,9 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
 import com.parse.ParseObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import bteamdevelopment.qrapplication.model.Conversation;
 
 
 public class ListViewAdapter extends BaseAdapter {
@@ -43,6 +47,7 @@ public class ListViewAdapter extends BaseAdapter {
         TextView sender;
         TextView receiver;
         TextView message;
+        TextView date;
     }
 
     // Get Count
@@ -66,6 +71,7 @@ public class ListViewAdapter extends BaseAdapter {
     // Get Items for MainActivity ListView
     public View getView(final int position, View view, ViewGroup parent) {
         final ViewHolder holder;
+        Conversation c = new Conversation();
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.chat_list, null);
@@ -83,6 +89,7 @@ public class ListViewAdapter extends BaseAdapter {
         holder.sender.setText(messageList.get(position).getSender());
 
         holder.message.setText(messageList.get(position).getMessage());
+
 
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -130,6 +137,10 @@ public class ListViewAdapter extends BaseAdapter {
                 // Pass all data Message
                 intent.putExtra("message",
                         (messageList.get(position).getMessage()));
+
+                intent.putExtra("createdAt",
+                        (messageList.get(position).getDate()));
+
 
                 // Start Chat Class
                 context.startActivity(intent);

@@ -26,6 +26,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
@@ -277,6 +278,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     contact.setSender((String) messageData.get("sender"));
                     contact.setReceiver((String) messageData.get("receiver"));
                     contact.setMessage((String) messageData.get("message"));
+                    contact.setDate((Date) messageData.get("createdAt"));
 
                     // Add Objects to contactList ArrayList
                     messageList.add(contact);

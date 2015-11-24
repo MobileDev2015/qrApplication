@@ -4,6 +4,7 @@ package bteamdevelopment.qrapplication;
  * Created by wkohusjr on 11/19/2015.
  */
 
+import java.util.Date;
 import java.util.ArrayList;
 
 /* Created by wkohusjr on 9/23/2015.
@@ -15,16 +16,18 @@ public class Message extends ArrayList<Message> {
     String sender = null;
     String receiver = null;
     String message = null;
+    Date date = null;
 
     public Message() {
 
     }
 
-    public Message(String id, String sender, String receiver, String message) {
+    public Message(String id, String sender, String receiver, String message, Date date) {
         this.id = id;
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
+        this.date = date;
     }
 
     public String getId() {
@@ -59,6 +62,13 @@ public class Message extends ArrayList<Message> {
         this.message = message;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     @Override
     public String toString() {
