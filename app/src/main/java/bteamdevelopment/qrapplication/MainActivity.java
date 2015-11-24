@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.parse.ParseACL;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -51,8 +52,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // To track statistics around application
         ParseAnalytics.trackAppOpened(getIntent());
-        
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
+        ParseInstallation.getCurrentInstallation().saveInBackground();
         // Get the view
         setContentView(R.layout.activity_main);
 
