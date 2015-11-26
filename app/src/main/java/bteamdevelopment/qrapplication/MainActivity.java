@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ParseUser currentUser = ParseUser.getCurrentUser();
         String userName = currentUser.getUsername();
 
+        // Add username for Installation - Used for Push.
         ParseInstallation installation = ParseInstallation.getCurrentInstallation();
         installation.put("username", userName);
         installation.saveInBackground();
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ParseAnalytics.trackAppOpened(getIntent());
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
         ParseInstallation.getCurrentInstallation().saveInBackground();
+
         // Get the view
         setContentView(R.layout.activity_main);
 
