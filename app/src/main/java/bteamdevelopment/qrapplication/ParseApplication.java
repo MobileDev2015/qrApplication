@@ -5,6 +5,7 @@ import android.app.Application;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseInstallation;
+import com.parse.ParsePush;
 import com.parse.ParseUser;
 
 
@@ -21,6 +22,8 @@ public class ParseApplication extends Application {
         Parse.initialize(this, "YyP2WIVMS1iQFFYa1V7bmANnqMTvTwb9SsVsMhVM", "OoVI4LnLjj5yNq6kDAVnjq5v1cMxxUmhpwibyMYk");
 
         ParseInstallation.getCurrentInstallation().saveInBackground();
+
+        ParsePush.subscribeInBackground("qrApplication");
 
         ParseUser.enableAutomaticUser();
         ParseACL defaultACL = new ParseACL();

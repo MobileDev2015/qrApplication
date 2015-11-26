@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -67,6 +68,14 @@ public class LoginSignupActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(),
                                             "Successfully Logged In",
                                             Toast.LENGTH_LONG).show();
+
+                                    ParseUser currentUser = ParseUser.getCurrentUser();
+                                    String userName = currentUser.getUsername();
+
+                                    ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+                                    installation.put("username", userName);
+                                    installation.saveInBackground();
+
                                     finish();
                                 } else {
                                     Toast.makeText(

@@ -156,6 +156,16 @@ public class Chat extends CustomActivity
         defaultACL.setPublicWriteAccess(true); //objects created are writable
         ParseACL.setDefaultACL(defaultACL, true);
 
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        installation.saveInBackground();
+
+        ParseQuery pushQuery = ParseInstallation.getQuery();
+        pushQuery.whereEqualTo("username", buddy);
+        ParsePush push = new ParsePush();
+        push.setQuery(pushQuery);
+        push.setMessage("You have a new message");
+        push.sendInBackground();
+
         ParseObject po = new ParseObject("Chat");
         po.setACL(defaultACL);
         po.put("sender", currentUser.getUsername());
@@ -304,13 +314,6 @@ public class Chat extends CustomActivity
             }
             else
                 lbl.setText("");
-
-            ParseQuery pushQuery = ParseInstallation.getQuery();
-            pushQuery.whereEqualTo("username", buddy );
-            ParsePush push = new ParsePush();
-            push.setQuery(pushQuery);
-            push.setMessage("You have a push notification");
-            push.sendInBackground();
 
             return v;
         }
