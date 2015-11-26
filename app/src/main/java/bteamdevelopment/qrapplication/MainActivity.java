@@ -52,15 +52,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        String userName = currentUser.getUsername();
+
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        installation.put("username", userName);
+        installation.saveInBackground();
+
         // To track statistics around application
         ParseAnalytics.trackAppOpened(getIntent());
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
         ParseInstallation.getCurrentInstallation().saveInBackground();
         // Get the view
         setContentView(R.layout.activity_main);
-
-        // Retrieve current user from Parse.com
-        ParseUser currentUser = ParseUser.getCurrentUser();
 
         // Convert currentUser into String
         String struser = currentUser.getUsername();

@@ -8,8 +8,8 @@ android {
         applicationId "bteamdevelopment.qrapplication"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 4
-        versionName "1.4"
+        versionCode 7
+        versionName "1.7"
     }
     buildTypes {
         release {
